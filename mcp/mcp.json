@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "video-gen": {
+      "command": "${LOCARYN_PLUGIN_ROOT}/bin/locaryn-video-gen-mcp",
+      "args": [],
+      "env": {
+        "RUST_LOG": "warn"
+      },
+      "transport": "stdio",
+      "auto_start": true
+    }
+  }
+}

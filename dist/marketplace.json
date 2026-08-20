@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "refreshUrl": "https://raw.githubusercontent.com/Locaryn/plugin-video-gen/main/dist/marketplace.json",
+  "owns": [
+    "animatediff",
+    "cogvideox",
+    "svd"
+  ],
+  "categories": [
+    {
+      "id": "video-generation",
+      "label": "Génération vidéo",
+      "icon": "video",
+      "matches": [
+        "video-gen"
+      ],
+      "requires": [
+        "video-gen"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "animatediff-lightning",
+      "name": "AnimateDiff Lightning",
+      "brand": "ByteDance",
+      "description": "Génération ultra-rapide de clips vidéo animés en 4 à 8 étapes.",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-03-20",
+      "releaseYear": 2024,
+      "capabilities": [
+        "video-gen"
+      ],
+      "variants": [
+        {
+          "size": "FP16 · 1.8B",
+          "params": 1.8,
+          "storageGb": 2.2,
+          "quants": [
+            "fp16"
+          ],
+          "tag": "https://huggingface.co/ByteDance/AnimateDiff-Lightning/resolve/main/animatediff_lightning_4step_diffusers.safetensors",
+          "downloads": []
+        }
+      ]
+    }
+  ]
+}

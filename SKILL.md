@@ -1,8 +1,8 @@
 ---
 name: video-generation
-description: Generate animated video clips from text prompts or images.
+description: Générer des vidéos courtes (MP4) et animer des scènes ou images fixes à partir d'instructions textuelles.
 ---
 
-# Video Generation Skill
+# Compétence Génération Vidéo
 
-Use `generate_video` when the user asks to animate an image or generate video clips.
+Utilisez `generate_video` lorsque l'utilisateur souhaite concevoir des animations, vidéos courtes ou animer une illustration.

@@ -2,31 +2,72 @@
   "$schema": "https://locaryn.dev/schema/plugin.json/v0.1",
   "apiVersion": "0.1",
   "name": "plugin-video-gen",
-  "version": "1.0.0",
-  "description": "Video generation extension (Text-to-Video and Image-to-Video models).",
+  "version": "1.1.0",
+  "description": "Extension autonome de génération vidéo et d'animation d'images (AnimateDiff, CogVideoX, SVD) avec interface de studio intégrée.",
   "author": "Locaryn Team",
   "license": "Apache-2.0",
   "homepage": "https://github.com/Locaryn/plugin-video-gen",
   "repository": "https://github.com/Locaryn/plugin-video-gen",
-  "keywords": ["video-generation", "text-to-video", "animatediff", "cogvideox"],
+  "keywords": [
+    "video-generation",
+    "text-to-video",
+    "animatediff",
+    "cogvideox",
+    "svd",
+    "image-to-video"
+  ],
   "permissions": {
-    "files_read": true,
-    "files_write": true
+    "mcp": {
+      "reason": "Lancer le moteur de rendu vidéo local."
+    },
+    "files.read": {
+      "reason": "Lire les modèles vidéo et images sources à animer."
+    },
+    "files.write": {
+      "reason": "Sauvegarder les clips vidéos MP4 et séquences produites."
+    },
+    "network": {
+      "reason": "Télécharger les modèles de diffusion vidéo depuis HuggingFace."
+    }
   },
-  "capabilities": ["video-gen"],
+  "components": {
+    "skills": [
+      "SKILL.md"
+    ],
+    "mcp": "mcp/mcp.json"
+  },
+  "capabilities": [
+    "video-gen"
+  ],
   "ui_contributions": {
+    "slots": [
+      {
+        "id": "video-gen-catalog",
+        "slot": "marketplace.catalogs",
+        "order": 18,
+        "type": "data",
+        "label": "Modèles de génération vidéo",
+        "icon": "video",
+        "entry": "dist/marketplace.json",
+        "hint": "Ajoute les modèles de génération vidéo au catalogue"
+      },
+      {
+        "id": "video-gen-studio",
+        "slot": "studio.tabs",
+        "order": 18,
+        "label": "Génération vidéo",
+        "icon": "video",
+        "type": "custom-element",
+        "entry": "dist/ui.js",
+        "tag": "locaryn-video-gen-panel",
+        "hint": "Génération de clips et animation de scènes"
+      }
+    ],
     "nav_items": [
       {
         "id": "studio",
         "label": "Studio de génération",
         "icon": "image"
-      }
-    ],
-    "studio_tabs": [
-      {
-        "id": "video",
-        "label": "Vidéo",
-        "icon": "video"
       }
     ]
   }
