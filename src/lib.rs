@@ -66,34 +66,9 @@ pub fn list_video_models() -> Vec<String> {
     models
 }
 
-pub async fn generate_video(req: VideoGenRequest) -> Result<VideoGenResult, String> {
-    let out_dir = req.output_dir.unwrap_or_else(|| {
-        if let Ok(media) = std::env::var("LOCARYN_EXTENSION_MEDIA_DIR") {
-            PathBuf::from(media)
-        } else {
-            std::env::current_dir()
-                .unwrap_or_else(|_| PathBuf::from("."))
-                .join("output")
-        }
-    });
-
-    std::fs::create_dir_all(&out_dir)
-        .map_err(|e| format!("Impossible de créer le dossier de sortie: {e}"))?;
-
-    let timestamp = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
-        .unwrap_or_default()
-        .as_millis();
-
-    let out_file = out_dir.join(format!("vid_{timestamp}.mp4"));
-    if !out_file.exists() {
-        let _ = std::fs::write(&out_file, b"MP4-VIDEO-LOCARYN");
-    }
-
-    let dur = (req.num_frames as f32) / (req.fps as f32);
-    Ok(VideoGenResult {
-        video_path: out_file,
-        duration_seconds: dur,
-        num_frames: req.num_frames,
-    })
+/// Non implemente. La signature est conservee pour que l'interface et le
+/// serveur MCP gardent leur forme, mais l'appel echoue franchement plutot
+/// que de fabriquer un resultat.
+pub async fn generate_video(_req: VideoGenRequest) -> Result<VideoGenResult, String> {
+    Err("La generation video n'est pas implementee : ce morph n'embarque aucun moteur video. Aucun fichier n'a ete produit.".into())
 }
