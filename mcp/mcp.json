@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "video-gen": {
-      "command": "${LOCARYN_PLUGIN_ROOT}/bin/locaryn-video-gen-mcp",
+      "command": "${LOCARYN_MORPH_ROOT}/bin/locaryn-video-gen-mcp",
       "args": [],
       "env": {
         "RUST_LOG": "warn"
