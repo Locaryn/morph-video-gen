@@ -1,4 +1,4 @@
-//! Stdio MCP server shipped by plugin-video-gen.
+//! Stdio MCP server shipped by morph-video-gen.
 use locaryn_plugin_video_gen::{generate_video, list_video_models, VideoGenRequest};
 use serde_json::{json, Value};
 use std::io::Write;
@@ -29,7 +29,7 @@ async fn handle_request(request: Value) -> Value {
         "initialize" => success(id, json!({
             "protocolVersion": "2025-06-18",
             "capabilities": { "tools": {} },
-            "serverInfo": { "name": "plugin-video-gen", "version": VERSION }
+            "serverInfo": { "name": "morph-video-gen", "version": VERSION }
         })),
         "tools/list" => success(id, tools_list()),
         "tools/call" => {
