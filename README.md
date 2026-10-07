@@ -5,4 +5,4 @@
 > moteur. Chaque appel renvoie une erreur explicite. Il est publié pour
 > figer le contrat, pas pour être utilisé.
 
-Extension de génération vidéo pour Locaryn.
+Morph de génération vidéo pour Locaryn.
